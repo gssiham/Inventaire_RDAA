@@ -1,0 +1,90 @@
+ 
+   <head>
+      <title>The jQuery Example</title>
+ <script src="http://code.jquery.com/jquery-1.6.4.js"></script>
+<script src="https://raw.github.com/ilinsky/xmlhttprequest/master/XMLHttpRequest.js"></script>
+ 
+   </head>
+	
+   <body>
+     
+<script>
+	function chkoupi(x,y,z)
+	{
+ 
+    var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ 
+  
+ db.transaction(function (tx) {
+ 
+ 
+    tx.executeSql('CREATE TABLE IF NOT EXISTS affectation2 (inv, code,date)');
+
+ tx.executeSql('INSERT INTO affectation2 (inv, code,date) VALUES ("'+x+'","'+y+'","'+z+'")');
+      
+});
+
+
+	}
+var ix=0;
+ $.get( "test.txt", function( data ) {
+  var text = data;
+var resx=[];
+   var res = data.split("\n");
+   document.getElementById("myInput").value="";
+
+   while (ix< res.length-1)
+   {
+    
+  
+document.getElementById("myInput").value=res[ix]+document.getElementById("myInput").value;
+     //alert("dd"+document.getElementById("stockage").value);
+   ix++ ;
+   }
+document.getElementById("nb").value=ix;
+});
+
+  function iny() {
+  	var i=0;
+  	 var x=document.getElementById("nb").value ;
+ var nb=parseInt(x) ;
+ 
+   var hm;
+   var detail ;
+   var all=document.getElementById("myInput").value ;
+  
+ var res = all.split("\n");
+   while (i<nb)
+   {
+ alert("chp");
+ 
+ var msg;
+ var detail=res[i].split("	");
+   hm=detail[0];
+chkoupi(hm,detail[1],detail[2]);
+
+ 	i++;
+
+    
+   }
+//
+
+}
+
+</script>
+		
+  
+
+            <script>
+
+ 
+ 
+
+ </script>
+<a href='#' onclick="iny();" />aaaaaaaaaaaaaaaa</a>
+ <input type="text" id="stockage"/>  
+ <input type="text" id="nb"/>  
+            <textarea id="myInput" name="myInput"rows="4" cols="50"/>
+
+ 
+ 

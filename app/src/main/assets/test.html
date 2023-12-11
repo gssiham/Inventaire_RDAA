@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" href="file:///android_asset/images/apple-touch-startup-image-320x460.png" />
+    <title>minio - mobile web app template</title>
+    <link rel="stylesheet" href="file:///android_asset/css/framework7.css">
+    <link rel="stylesheet" href="file:///android_asset/style.css">
+    <link type="text/css" rel="stylesheet" href="file:///android_asset/css/swipebox.css" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+</head>
+<body id="mobile_wrap">
+
+<div class="statusbar-overlay"></div>
+
+<div class="panel-overlay"></div>
+
+<div class="panel panel-left panel-cover">
+    <nav class="list-nav">
+        <ul>
+            <li class="home-icon"><a href="index.html" class="close-panel">Home</a></li>
+            <li class="about-icon"><a href="about.html" class="close-panel">About</a></li>
+            <li class="features-icon"><a href="features.html" class="close-panel">Features</a></li>
+            <li class="photos-icon"><a href="photos.html" class="close-panel">Gallery</a></li>
+            <li class="video-icon"><a href="videos.html" class="close-panel">Videos</a></li>
+            <li class="blog-icon"><a href="blog.html" class="close-panel">Blog</a></li>
+            <li class="contact-icon"><a href="contact.html" class="close-panel">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="panel panel-right panel-cover">
+    <div class="user_login_info">
+        <h2>Hi, username</h2>
+        <p>Edit your account settings</p>
+        <nav class="list-nav-small">
+            <ul>
+                <li class="about-icon"><a href="about.html" class="close-panel">Profile</a></li>
+                <li class="tools-icon"><a href="features.html" class="close-panel">Settings</a></li>
+                <li class="lock-icon"><a href="features.html" class="close-panel">Account</a></li>
+                <li class="envelope-icon"><a href="features.html" class="close-panel">Messages</a></li>
+                <li class="heart-icon"><a href="features.html" class="close-panel">Favorites</a></li>
+                <li class="download-icon"><a href="features.html" class="close-panel">Downloads</a></li>
+                <li class="logout-icon"><a href="index.html" class="close-panel">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="views">
+
+    <div class="view view-main">
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left sliding"><div class="logo_title">minio</div></div>
+                <div class="right menu_open_icon"><a href="#" data-panel="left" class="link icon-only open-panel"></a></div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through toolbar-through">
+
+            <div data-page="index" class="page homepage">
+                <div class="page-content">
+
+                    <!-- Slider -->
+                    <div class="swiper-container swiper-init" data-effect="coverflow" data-pagination=".swiper-pagination">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <span>THE <br /> CREATIVE</span>
+                                <span class="subtitle">mobile app solution</span>
+                                <a href="about.html" class="swiper_read_more">swipe to see more</a>                      </div>
+                            <div class="swiper-slide">
+                                <span>WITH <br />BEAUTIFUL</span>
+                                <span class="subtitle">multipurpose designs</span>
+                                <a href="features.html" class="swiper_read_more">see all features</a>                      </div>
+                            <div class="swiper-slide">
+                                <span>READY <br /> FOR APPS</span>
+                                <span class="subtitle">web and native</span>
+                                <a href="#" class="swiper_read_more open-panel">start navigating</a>                      </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function test()
+        {
+        location.href = "file:///android_asset/js/stat.html";
+        }
+        </script>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+            <div class="toolbar-inner">
+                <ul class="toolbar_icons icons_4row">
+                    <li><a href="#" data-popup=".popup-login" class="open-popup"><img src="images/icons/white/user.png" alt="" title="" /></a></li>
+
+                    <li><a href="#" data-popup=".popup-social2"   onclick="affiche_bureau();"class="open-popup" id="bureau_liste"><img src="bureau.png" alt="" title="" /></a></li>
+
+                    <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="search.png" alt="" title="" /></a></li>
+                    <li><a href="#" data-popup=".popup-detail" class="open-popup"><img src="images/icons/white/heart.png" alt="" title="" /></a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- About Popup -->
+<div class="popup popup-login">
+    <div class="content-block" >
+        <h4>Login</h4>
+        <div class="loginform">
+            <script>
+function ref() {
+var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+
+});
+
+db.transaction(function (tx) {
+tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+var len = results.rows.length, i;
+msg = "<p>Found rows: " + len + "</p>";
+document.querySelector('#myInput').innerHTML ="";
+document.querySelector('#status').innerHTML +=  msg;
+for (i = 0; i < len; i++){
+ 
+ document.querySelector('#myInput').innerHTML +=  results.rows.item(i).bureau +results.rows.item(i).bureau +"\n";
+
+//document.querySelector('#myInput').innerHTML +=  msg;
+
+  }
+   }, null);
+ });
+}
+
+
+ </script>
+            <textarea id="myInput" name="myInput"rows="4" cols="50">
+
+</textarea>  <button onclick="ref()">ref</button>
+
+            <div id="status" name="status">Status Message</div>
+            <button onclick="myFunction()">Copy text</button>
+
+            <p>The document.execCommand() method is not supported in IE8 and earlier.</p>
+
+            <script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: "  );
+}
+</script>
+        </div>
+        <div class="close_popup_button_gray"
+             style="    position: relative;    margin-top: 100px;"
+        ><a href="#" class="close-popup">Close</a></div>
+    </div>
+</div>
+<!-- Services Popup -->
+
+
+
+
+
+<script>
+
+
+var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log,bureau)');
+
+});
+
+db.transaction(function (tx) {
+tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+var len = results.rows.length, i;
+msg = "<p>Found rows: " + len + "</p>";
+document.querySelector('#myInput').innerHTML ="";
+document.querySelector('#status').innerHTML +=  msg;
+for (i = 0; i < len; i++){
+ msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+document.getElementById("max").value=  results.rows.item(i).id  ;
+//document.querySelector('#myInput').innerHTML +=  msg;
+ }
+   }, null);
+ });
+
+function deletex(a,r)
+{
+alert('suppression de '+a);
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("myTable").deleteRow(i);
+
+  var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+ tx.executeSql('delete from LOGS where id='+a);
+  msg = '<p>Log message created and row inserted.</p>';
+ document.querySelector('#status').innerHTML =  msg;
+});
+
+}
+    function add()
+    {
+    	 var max = document.getElementById("max").value;
+     var bureau = document.getElementById("bureau").value;
+    	 var xx=Number(max)+1;
+     document.getElementById("max").value=xx;
+    	 var article = document.getElementById("article").value;
+    var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
+  cell1.innerHTML =  article ;
+  cell2.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+   cell3.innerHTML = "xxxx";
+      cell4.innerHTML = "<a href='#' onclick='deletex("+xx+",this);'>⛔</a>";
+  ///
+  var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+ tx.executeSql('INSERT INTO LOGS (id, log,bureau) VALUES ('+xx+', "'+article+'", "'+bureau+'")');
+  msg = '<p>Log message created and row inserted.</p>';
+ document.querySelector('#status').innerHTML =  msg;
+});
+
+
+
+    }
+</script>
+<link rel="stylesheet" href="boots.css">
+<div class="popup popup-social" style="background: white;color:black;">
+    <div class="content-block">
+        <h4> scan  </h4>
+        <p style="color:black;">Share icons solution that allows you share and increase your social popularity.</p>
+        <ul class="social_share" style="text-align:center;">
+            <div class="input-group-prepend">
+
+                <span class="input-group-text">@</span>
+            </div>
+            <input  class="form-control" type ="text" placeholder="Bureau"   style="width: 150px;    margin-top: -38px;
+    margin-left: 41px;" id="bureau" />
+
+            <input type ="text" id="max"  class="form-control" style="    width: 60px;
+    margin-top: -38px;
+    margin-left: 312px;"/>
+
+
+
+
+            <div class="input-group mb-3" style="margin-top: 10px;">
+
+
+
+                <div class="input-group-prepend">
+
+                    <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Article" id="article" name="article">
+            </div>
+            <div>
+                <a href="#" value="x" class="swiper_read_more" style="width: 10px;
+    height: 0px;
+    font-size: 15px;margin-left: 35px;    background: #0c928d;"  onclick="add();">   </a>
+            </div>
+
+
+            <br/><br/>
+            <div>
+
+
+
+                <div class="container">
+
+
+
+                    <h2>Articles Scannés</h2>
+
+                    <table class="table" >
+                        <thead>
+                        <tr>
+                            <th>Article</th>
+                            <th>Qte</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <table class="table" id="myTable" style="margin-top: -18px;" >
+
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </ul>
+        <div class="close_popup_button"
+             style="    position: relative;    margin-top: 100px;"
+        ><a href="#" class="close-popup">Close</a></div>
+    </div>
+</div>
+
+
+<div class="popup popup-social2" style="background: white;color:black;">
+    <div class="content-block">
+
+        <script>
+	function affiche_d(x) {
+	var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+
+});
+
+db.transaction(function (tx) {
+
+tx.executeSql('SELECT log  ,count(*) as x FROM LOGS where bureau="'+x+'"  group by log ', [], function (tx, results) {
+var len = results.rows.length, i;
+    document.getElementById("myTable3").innerHTML="";
+
+   var table = document.getElementById("myTable3");
+
+for (i = 0; i < len; i++){
+// msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+// document.querySelector('#myInput').innerHTML +=  results.rows.item(i).log +"\n";
+//document.querySelector('#myInput').innerHTML +=  msg;
+
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+      cell1.innerHTML = results.rows.item(i).log ;
+  cell2.innerHTML =  results.rows.item(i).x;
+   cell3.innerHTML = ' ';
+
+
+  }
+   }, null);
+ });
+			}
+
+
+
+function affiche_bureau() {
+
+var db = openDatabase('hammoudi1', '1.0', 'Test DB', 2 * 1024 * 1024);
+ var msg;
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+
+});
+
+db.transaction(function (tx) {
+
+tx.executeSql('SELECT bureau,count(*)as x FROM LOGS group by bureau ', [], function (tx, results) {
+var len = results.rows.length, i;
+    document.getElementById("myTable2").innerHTML="";
+
+   var table = document.getElementById("myTable2");
+
+for (i = 0; i < len; i++){
+// msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+// document.querySelector('#myInput').innerHTML +=  results.rows.item(i).log +"\n";
+//document.querySelector('#myInput').innerHTML +=  msg;
+
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+      cell1.innerHTML = results.rows.item(i).bureau ;
+  cell2.innerHTML = results.rows.item(i).x;
+   cell3.innerHTML = ' <div class="toolbar"><div class="toolbar-inner"><ul class="toolbar_icons icons_4row"><li><a href="#" data-popup=".popup-detail" class="open-popup" onclick="affiche_d('+results.rows.item(i).bureau+');"><img src="images/icons/white/heart.png" alt="" title="" />⚡</a></li></ul></div></div>';
+
+
+  }
+   }, null);
+ });
+}
+</script>
+
+        <div class="container">
+
+
+
+            <h2>Liste des bureaux</h2>
+            <p style="color: black;text-align: left;">Séléctionner une ligne pour voir le détail du bureau</p>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th>Bureau</th>
+                    <th>Nb Article</th>
+                    <th>Détail</th>
+                </tr>
+                </thead>
+            </table>
+            <table class="table" id="myTable2" style="margin-top: -18px;" >
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="close_popup_button" style="    position: relative;    margin-top: 100px;"><a href="#" class="close-popup">Close</a></div>
+    </div>
+</div>
+<script>
+
+</script>
+
+<div class="popup popup-detail" style="background: white;color:black;">
+    <div class="content-block">
+        <div class="container">
+
+
+
+            <h2>Basic Table</h2>
+            <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Qte Inventoriés</th>
+                    <th>Qte Dénombrés</th>
+                </tr>
+                </thead>
+            </table>
+            <table class="table" id="myTable3" style="margin-top: -18px;" >
+
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="close_popup_button"><a href="#" class="close-popup" style="    position: relative;    margin-top: 100px;"  >Close</a></div>
+
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/email.js"></script>
+</body>
+</html>

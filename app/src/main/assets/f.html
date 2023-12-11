@@ -1,0 +1,170 @@
+  
+ 
+ <html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>Exemple 17.18.1</title>
+  
+
+         <script>
+             function envoyerFormulaire()
+         {
+         var ajax = new XMLHttpRequest(); 
+         if (ajax==null) return;
+
+         var data = new FormData(document.getElementById("form1"));
+
+         ajax.open("POST", "http://51.83.72.72/recept.php", true); 
+         ajax.onreadystatechange=function () {
+                réponseAjax(ajax);
+                };
+
+         ajax.send(data);                 
+         }
+
+      function réponseAjax(ajax)
+         {
+         if (ajax.readyState!=4) return; 
+         if (ajax.status!=200) return;
+        
+         var div = document.getElementById("résultat");
+         if (div==null) return;                 
+         while (div.firstChild) div.removeChild(div.firstChild);
+         div.appendChild(document.createTextNode(ajax.responseText));
+
+         }  
+function test() {
+ 
+Android.jsCallback();
+
+Android.jsCallbackTwo(document.getElementById("name").value,document.getElementById("prenom").value,document.getElementById("code").value);
+}
+</script>
+ <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+Button  {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+  </head>
+  <body>
+
+ 
+
+
+<div class="container">
+
+
+    <div id="résultat">
+      <form   id="form1" enctype="application/x-www-form-urlencoded">
+   
+        <p>Entrez votre Nom et Prénom:</p>
+        
+        <input type="text" name="name" id="name" style="width:150px;"  ></input>
+        
+        <input type="text" name="prenom"  id="prenom" style="width:150px;" ></input>
+                
+                <p>Date de naissance:</p>
+                
+        <input type="text" name="code" id="code"  style="width:150px;"></input>
+              
+         <p>Piece identité:</p>
+  <select name="t" id="t" style="width:150px;">
+  <option value="1">cni</option>
+  <option value="2">prmis</option>
+ 
+</select>
+        <input type="text" name="code" id="code"  style="width:150px;"></input>
+                  
+
+  <p>Adresse:</p>
+        
+        <input type="text" name="Adresse" id="Adersse" style="width:200px;"  ></input>
+        
+     <select name="code_wilaya" id="code_wilaya" style="width:50px;">
+  <option value="01">Adrrar</option>
+  <option value="02">xxx</option>
+ 
+</select>
+        <input type="hidden" name="cni" id="cni" ></input>
+    <input type="hidden" name="contrat" id="contrat" ></input>
+        <a href="#"   name="ok" onclick="test();envoyerFormulaire();"  >GO</a>
+      </form>
+    </div>
+
+
+        <div class="takePhoto"> 
+                   <Button onClick="takePhotoid()">Take Picture </Button> 
+     
+                   <Button onClick="Displayid()">CNI</Button> 
+  
+                   <Button onClick="Displaycontrat()">Contrat</Button> 
+           </div>
+           <script type="text/javascript"> 
+               function takePhotoid(){
+                    Android.takePhoto(); 
+                    
+               }
+           </script> 
+                <script type="text/javascript"> 
+             
+                 function Displayid(){
+            var x=Android.xxx();
+                      
+                   document.getElementById("img").src = "data:image/png;base64,"+x+""
+           document.getElementById("cni").value = "data:image/png;base64,"+x+""
+               
+               }
+                    function Displaycontrat(){
+            var x=Android.xxx();
+                      
+                   document.getElementById("img2").src = "data:image/png;base64,"+x+""
+        
+                  document.getElementById("contrat").value = "data:image/png;base64,"+x+""
+               }
+           </script> 
+           <div>
+           
+ <img id="img" /> 
+ 
+    
+ <img id="img2" /> 
+ </div>
+  </div>
+  </body>
+</html>
+ 
+
+
+
+
+
+ 
